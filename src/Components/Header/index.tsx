@@ -8,10 +8,11 @@ const Component = styled.div`
 background-color: #730202;
 width: 100%;
 height: 10vh;
+margin-bottom: 30px;
 `;
 
 const Content = styled.div`
-width: 85%; 
+width: 90%; 
 height: 100%;
 justify-content:space-between;
 align-items: center;

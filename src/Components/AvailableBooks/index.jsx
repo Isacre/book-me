@@ -1,7 +1,15 @@
 import styled from "styled-components";
-
-const Component = styled.div``;
+import { useAppSelector } from "../../store/hooks";
+import LivroDisponivel from "./LivroDisponivel";
 
 export default function AvailableBooks() {
-  return <Component>teste</Component>;
+  const data = useAppSelector((state) => state.home.livros);
+  console.log(data);
+  return (
+    <div>
+      {data.map((livro) => (
+        <LivroDisponivel data={data} />
+      ))}
+    </div>
+  );
 }

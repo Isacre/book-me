@@ -1,9 +1,10 @@
 @font-face {
-  font-family: Default;
+  font-family: NovaFont;
   src: url(/src/assets/fonts/Proxima\ Nova\ Font.otf);
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: NovaFont;
 }
