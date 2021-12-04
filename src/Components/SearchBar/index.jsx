@@ -31,7 +31,7 @@ const Filters = styled.select`
 function SearchBar() {
   return (
     <Component>
-      <img src={lupa} />
+      <img src={lupa} alt="lupa" />
       <input placeholder="Pesquisar por título" />
       <div>
         <Filters id="filters" name="filters">
