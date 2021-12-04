@@ -10,7 +10,8 @@ const Titulo = styled.h1`
   margin: auto;
   text-align: center;
   font-size: 12px;
-  width: 80%;
+  width: 90%;
+  height: 28px;
   margin: auto;
   margin-top: 5px;
   line-height: 13px;
@@ -46,12 +47,14 @@ const Bloco = styled.div`
 export default function LivroDisponivel(props) {
   const livro = props.livro;
   return (
-    <div>
-      <Capa />
+    <Livros>
+      <Capa src={livro.capa} />
       <Bloco>
-        <Titulo></Titulo>
-        <Autor></Autor>
+        <div>
+          <Titulo>{livro.nome}</Titulo>
+          <Autor>{livro.autor}</Autor>
+        </div>
       </Bloco>
-    </div>
+    </Livros>
   );
 }

@@ -7,12 +7,12 @@ import sino from '../../assets/sino.svg'
 const Component = styled.div`
 background-color: #730202;
 width: 100%;
-height: 10vh;
+height: 12vh;
 margin-bottom: 30px;
 `;
 
 const Content = styled.div`
-width: 90%; 
+width: 80%; 
 height: 100%;
 justify-content:space-between;
 align-items: center;
@@ -24,8 +24,8 @@ const Logo = styled.div`
 display: flex;
 align-items: center;
 color: white;
-font-size: 20px;
-gap: 20px;
+font-size: 22px;
+gap: 15px;
 img {
   height: 40px;
 }
@@ -34,11 +34,11 @@ const UserInfo = styled.div`
 vertical-align: top;
 
 img {
-  height: 25px;
+  height: 20px;
   
 
   :first-child{
-    margin-right: 30px;
+    margin-right: 20px;
   }
 }
 `;

@@ -9,7 +9,8 @@ const Titulo = styled.h1`
   margin: auto;
   text-align: center;
   font-size: 12px;
-  width: 80%;
+  width: 90%;
+  height: 28px;
   margin: auto;
   margin-top: 5px;
   line-height: 13px;

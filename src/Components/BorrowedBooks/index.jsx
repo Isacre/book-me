@@ -1,22 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../store/hooks";
+import SearchBar from "../SearchBar";
 import LivroEmprestado from "./LivroEmprestado";
 const Livros = styled.div`
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+
+  width: 100%;
+  margin: auto;
+  @media (max-width: 320px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 export default function BorrowedBooks() {
   const data = useAppSelector((state) => state.home.emprestados);
   console.log(data);
   return (
-    <Livros>
-      {data.map((livro) => (
-        <LivroEmprestado livro={livro} />
-      ))}
-    </Livros>
+    <>
+      <SearchBar />
+      <Livros>
+        {data.map((livro) => (
+          <LivroEmprestado livro={livro} />
+        ))}
+      </Livros>
+    </>
   );
 }
