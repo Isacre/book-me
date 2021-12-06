@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import { useState } from "react";
-import BookInfo from "../../../pages/BookInfo";
-import { Route, Routes, Link } from "react-router-dom";
-import { Livro } from "../../../store/home";
 
-const Livros = styled.div`
+
+export const Books = styled.div`
   margin: auto;
   margin-top: 30px;
   cursor: pointer;
@@ -13,7 +10,7 @@ const Livros = styled.div`
     text-decoration: none;
   }
 `;
-const Titulo = styled.h1`
+export const Title = styled.h1`
   color: white;
   margin: auto;
   text-align: center;
@@ -36,7 +33,7 @@ const Titulo = styled.h1`
   }
 `;
 
-const Autor = styled.p`
+export const Author = styled.p`
   text-align: right;
   color: white;
   margin-right: 10%;
@@ -54,7 +51,7 @@ const Autor = styled.p`
   }
 `;
 
-const Capa = styled.img`
+export const Cover = styled.img`
   width: 70px;
   height: 100px;
   border: 4px solid white;
@@ -73,7 +70,7 @@ const Capa = styled.img`
     margin-left: 55px;
   }
 `;
-const Bloco = styled.div`
+export const Block = styled.div`
   width: 100px;
   height: 100px;
   z-index: 1;
@@ -95,24 +92,3 @@ const Bloco = styled.div`
     margin-left: 22px;
   }
 `;
-
-type LivroDisponivelProps = {
-  livro: Livro;
-  index: number;
-};
-
-export default function LivroDisponivel(props: LivroDisponivelProps) {
-  const { index, livro } = props;
-
-  return (
-    <Livros>
-      <Capa src={livro.capa} />
-      <Bloco>
-        <div>
-          <Titulo>{livro.nome}</Titulo>
-          <Autor>{livro.autor}</Autor>
-        </div>
-      </Bloco>
-    </Livros>
-  );
-}
