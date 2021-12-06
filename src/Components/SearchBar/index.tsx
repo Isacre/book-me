@@ -3,6 +3,8 @@ import lupa from "../../assets/Search.svg";
 
 const Component = styled.div`
   display: flex;
+  width: 95%;
+  margin: auto;
   img {
     margin-right: 10px;
   }
@@ -25,7 +27,13 @@ const Component = styled.div`
 
 const Filters = styled.select`
   border: none;
+  background-color: transparent;
   color: #730202;
+
+  option {
+    background-color: #730202;
+    color: #fff;
+  }
 `;
 
 function SearchBar() {
@@ -36,7 +44,6 @@ function SearchBar() {
       <div>
         <Filters id="filters" name="filters">
           <option value="mais recentes">Mais recentes</option>
-          <option value="mais recentes">Ordem Alfabetica</option>
           <option value="mais recentes">Ordem Alfabetica</option>
         </Filters>
       </div>

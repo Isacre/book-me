@@ -1,7 +1,16 @@
 import styled from "styled-components";
-import AvailableBooks from "../AvailableBooks";
-import BorrowedBooks from "../BorrowedBooks";
+import AvailableBooks from "../../Components/AvailableBooks/index";
+import BorrowedBooks from "../../Components/BorrowedBooks";
 import { useState } from "react";
+import { GoPlus } from "react-icons/go";
+import { Link } from "react-router-dom";
+
+type Props = {
+  Available?: Boolean;
+  setNome?: String;
+  setAutor?: String;
+  setCapa?: String;
+};
 
 const Component = styled.div`
   width: 100%;
@@ -38,7 +47,7 @@ const Selector = styled.div`
   }
 `;
 
-const Disponiveis = styled.button`
+const Disponiveis = styled.button<Props>`
   color: ${(props) =>
     props.Available ? "rgba(115,2,2,1)" : "rgba(115,2,2,0.25)"};
   background-color: ${(props) =>
@@ -47,7 +56,7 @@ const Disponiveis = styled.button`
   border-radius: 25px;
   font-size: 12px;
 `;
-const Emprestados = styled.button`
+const Emprestados = styled.button<Props>`
   color: ${(props) =>
     props.Available ? "rgba(115,2,2,0.25)" : "rgba(115,2,2,1)"};
   background-color: ${(props) =>
@@ -55,6 +64,23 @@ const Emprestados = styled.button`
   padding: 5px 15px;
   border-radius: 25px;
   font-size: 12px;
+`;
+
+const NewBookButton = styled.button`
+  background-color: #730202;
+  border: none;
+  border-radius: 35px;
+  color: white;
+  font-size: 35px;
+  color: rgba(226, 198, 198, 1);
+  padding: 3px 8px;
+  padding-top: 8px;
+`;
+
+const BUTTONDIV = styled.div`
+  position: fixed;
+  left: 80vw;
+  top: 90vh;
 `;
 
 export default function Home() {
@@ -80,9 +106,16 @@ export default function Home() {
             </Emprestados>
           </div>
         </Selector>
+
         {Available ? <AvailableBooks /> : <BorrowedBooks />}
+        <BUTTONDIV>
+          <Link to="/adicionar">
+            <NewBookButton>
+              <GoPlus />
+            </NewBookButton>
+          </Link>
+        </BUTTONDIV>
       </Content>
-      :
     </Component>
   );
 }
