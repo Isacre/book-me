@@ -50,6 +50,7 @@ export default function AddToColection() {
           </ImageContainer>
           {NewImage && (
             <InsertImage
+              placeholder="Insira o link da capa aqui"
               value={Capa}
               onChange={(event) => setCapa(event.target.value)}
             ></InsertImage>

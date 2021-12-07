@@ -11,7 +11,7 @@ export default function AvailableBooks() {
       <SearchBar />
       <Books>
         {livros.map((livro, index) => (
-          <Book key={livro.nome} livro={livro} index={index} />
+          <Book key={livro.id} livro={livro} index={index} />
         ))}
       </Books>
     </>

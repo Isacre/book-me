@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/index";
 import AddToColection from "./pages/AddToColection";
+import BookInfo from "./pages/BookInfo";
 
 function App() {
   return (
@@ -13,7 +14,10 @@ function App() {
         <Router>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />}></Route>
+            <Route path="info" element={<BookInfo />}>
+              <Route path=":livro" />
+            </Route>
             <Route path="/adicionar" element={<AddToColection />} />
           </Routes>
         </Router>
