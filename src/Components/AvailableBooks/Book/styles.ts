@@ -9,6 +9,7 @@ export const Books = styled.div`
   a {
     text-decoration: none;
   }
+  
 `;
 export const Title = styled.h1`
   color: white;
@@ -59,6 +60,10 @@ export const Cover = styled.img`
   margin-bottom: -55%;
   margin-left: 15px;
 
+  :hover{
+    box-shadow:  0px 1px 5px #730202;
+  }
+
   @media (min-width: 900px) {
     width: 105px;
     height: 150px;
@@ -80,6 +85,7 @@ export const Block = styled.div`
   div {
     padding-top: 55%;
   }
+  
 
   @media (min-width: 900px) {
     width: 150px;

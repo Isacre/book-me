@@ -70,10 +70,16 @@ export const NewBookButton = styled.button`
   color: rgba(226, 198, 198, 1);
   padding: 3px 8px;
   padding-top: 8px;
+  cursor: pointer;
+
+  :hover{
+    filter: brightness(110%)
+  }
 `;
 
 export const BUTTONDIV = styled.div`
   position: fixed;
   left: 80vw;
   top: 90vh;
+  
 `;

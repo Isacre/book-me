@@ -19,7 +19,7 @@ const initialState = {
       capa: "https://64.media.tumblr.com/82f56f7adfc3d4064aa5b4da899e035a/tumblr_o90l4m7XVV1qhttpto3_1280.jpg",
       categoria: "Romance",
       sinopse:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Capt. Ahab (Gregory Peck) has a vendetta against Moby Dick, the great white whale responsible for taking his leg. He sets out on a treacherous sea voyage aboard The Pequod, along with a crew including Starbuck (Leo Genn), Father Mapple (Orson Welles) and Ishmael (Richard Basehart), to hunt down the elusive beast. With reckless abandon, Ahab leads the crew on his obsessive and suicidal quest, anxious for a final showdown with the legendary white whale.",
       id: `book-${Math.floor(Math.random() * 3214)}`,
     },
     {
@@ -28,7 +28,7 @@ const initialState = {
       capa: "https://images-na.ssl-images-amazon.com/images/I/81EStZoMf7L.jpg",
       categoria: "Romance",
       sinopse:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "1984 é uma das principais obras escritas em língua inglesa, figurando entre as mais conhecidas mundialmente.",
       id: `book-${Math.floor(Math.random() * 3214)}`,
     },
     {
