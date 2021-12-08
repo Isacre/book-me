@@ -4,7 +4,7 @@ export const HeaderBackground = styled.div`
   background-color: #730202;
   width: 100%;
   height: 12vh;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   a {
     text-decoration: none;
   }

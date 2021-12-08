@@ -18,7 +18,9 @@ import { useDispatch } from "react-redux";
 import { AddBook } from "../../store/home";
 
 export default function AddToColection() {
-  const [Capa, setCapa] = useState("");
+  const [Capa, setCapa] = useState(
+    "https://i.pinimg.com/236x/b4/9e/7a/b49e7a7298b855f8bf2cd3f5923ea7ab.jpg"
+  );
   const [Nome, setNome] = useState("");
   const [Autor, setAutor] = useState("");
   const [genero, setGenero] = useState("");
@@ -46,7 +48,9 @@ export default function AddToColection() {
           <ImageContainer onClick={() => setNewImage(!NewImage)}>
             <Placeholderimg src={Vector} />
             <UploadImage />
-            {Capa && <Preview src={Capa} alt="capa" />}
+            {Capa !==
+              "https://i.pinimg.com/236x/b4/9e/7a/b49e7a7298b855f8bf2cd3f5923ea7ab.jpg" ||
+              ("" && <Preview src={Capa} alt="capa" />)}
           </ImageContainer>
           {NewImage && (
             <InsertImage
@@ -62,17 +66,22 @@ export default function AddToColection() {
           <h2>Autor *</h2>
           <input onChange={(e) => setAutor(e.target.value)} value={Autor} />
           <h2>Gênero</h2>
-          <select
-            name="generos"
+          <input
             onChange={(event) => setGenero(event.target.value)}
             value={genero}
-          >
+            list="generos"
+          />
+          <datalist id="generos">
             <option value="Não especificado">Não especificado</option>
             <option value="Romance">Romance</option>
+            <option value="Drama">Drama</option>
+            <option value="Poesia">Poesia</option>
+            <option value="Conto">Conto</option>
             <option value="Ficção cientifica">Ficção cientifica</option>
             <option value="Literatura">Literatura</option>
             <option value="Outros">Outros</option>
-          </select>
+          </datalist>
+
           <h2>Sinopse</h2>
           <SinopseBox
             onChange={(event) => setSinopse(event?.target.value)}

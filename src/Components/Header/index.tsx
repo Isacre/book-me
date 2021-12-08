@@ -1,6 +1,5 @@
 import { HeaderBackground, HeaderContainer, Logo, UserInfo } from "./styles";
 import { Link } from "react-router-dom";
-
 import logo from "../../assets/Frame.svg";
 import pessoa from "../../assets/pessoa.svg";
 import sino from "../../assets/sino.svg";

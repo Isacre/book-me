@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/index";
 import AddToColection from "./pages/AddToColection";
 import BookInfo from "./pages/BookInfo";
+import Emprestado from "./pages/Emprestado";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="info" element={<BookInfo />}>
+              <Route path=":livro" />
+            </Route>
+            <Route path="emprestado" element={<Emprestado />}>
               <Route path=":livro" />
             </Route>
             <Route path="/adicionar" element={<AddToColection />} />

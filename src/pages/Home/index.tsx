@@ -8,8 +8,7 @@ import {
   NewBookButton,
   BUTTONDIV,
 } from "./styles";
-import AvailableBooks from "../../Components/AvailableBooks/index";
-import BorrowedBooks from "../../Components/BorrowedBooks";
+import Books from "../../Components/Books/index";
 import { useState } from "react";
 import { GoPlus } from "react-icons/go";
 import { Link } from "react-router-dom";
@@ -38,7 +37,7 @@ export default function Home() {
           </div>
         </Selector>
 
-        {Available ? <AvailableBooks /> : <BorrowedBooks />}
+        <Books Available={Available} />
         <BUTTONDIV>
           <Link to="/adicionar">
             <NewBookButton>

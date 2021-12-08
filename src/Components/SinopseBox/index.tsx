@@ -37,7 +37,7 @@ const Content = styled.div`
   }
 `;
 
-export default function Sinopse(props: any) {
+export default function SinopseBox(props: any) {
   const selectedBook = props.selectedBook;
   const { setShowSinopse } = props;
   return (
