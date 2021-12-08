@@ -35,6 +35,11 @@ export default function AddToColection() {
       capa: Capa,
       categoria: genero,
       sinopse: Sinopse,
+      id: `book-${Math.floor(Math.random() * 3214)}`,
+      emprestado: "",
+      em: "",
+      ate: "",
+      obs: "",
     };
 
     dispatch(AddBook(BookData));

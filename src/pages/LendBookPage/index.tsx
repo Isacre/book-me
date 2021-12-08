@@ -9,6 +9,9 @@ import {
 } from "./styles";
 import { useState } from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { BorrowBook } from "../../store/home";
+import { useNavigate } from "react-router-dom";
 
 const HeaderTEXT = styled.h1`
   font-size: 54px;
@@ -63,8 +66,37 @@ const Inputs = styled.div`
 `;
 
 export default function LendBookPage(props: any) {
+  const navigate = useNavigate();
+  const { setLendBook } = props;
   const selectedBook = props.selectedBook;
-  const [Who, setWho] = useState("");
+  const BookIndex = props.BookIndex;
+  console.log(BookIndex);
+  const LentIn = "";
+  const [LentTill, setLentTill] = useState("");
+  const [Obs, setObs] = useState("");
+  const [Receiver, setReceiver] = useState("");
+  const dispatch = useDispatch();
+
+  function LendBook() {
+    const BookData = {
+      Book: {
+        nome: selectedBook.nome,
+        autor: selectedBook.autor,
+        capa: selectedBook.capa,
+        categoria: selectedBook.categoria,
+        sinopse: selectedBook.sinopse,
+        id: `book-${Math.floor(Math.random() * 3214)}`,
+        emprestado: Receiver,
+        em: LentIn,
+        ate: LentTill,
+        obs: Obs,
+      },
+      Index: BookIndex,
+    };
+    dispatch(BorrowBook(BookData));
+    setLendBook(true);
+    navigate("/");
+  }
 
   return (
     <Component>
@@ -82,17 +114,28 @@ export default function LendBookPage(props: any) {
       </Content>
       <Inputs>
         <p>A quem? *</p>
-        <input placeholder="John Doe" />
+        <input
+          placeholder="John Doe"
+          onChange={(e) => setReceiver(e.target.value)}
+          value={Receiver}
+        />
         <div>
           <p>Até quando?</p>{" "}
           <span>'(ignorar caso empreste indefinidamente)'</span>
         </div>
-        <input placeholder="28/04/2025" />
+        <input
+          placeholder="28/04/2025"
+          onChange={(e) => setLentTill(e.target.value)}
+          value={LentTill}
+        />
         <p>Observação</p>
-        <textarea />
+        <textarea
+          value={Obs}
+          onChange={(event) => setObs(event.target.value)}
+        />
       </Inputs>
       <Emprestar>
-        <button>Emprestar</button>
+        <button onClick={LendBook}>Emprestar</button>
       </Emprestar>
     </Component>
   );

@@ -60,7 +60,11 @@ export default function BookInfo() {
           </Component>
         </>
       ) : (
-        <LendBookPage selectedBook={selectedBook} />
+        <LendBookPage
+          selectedBook={selectedBook}
+          BookIndex={BookIndex}
+          setLendBook={setLendBook}
+        />
       )}
     </>
   );

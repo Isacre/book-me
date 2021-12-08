@@ -10,33 +10,39 @@ export default function Books(props: any) {
 
   return (
     <>
-      {Available ? (
-        <>
-          <SearchBar />
-          <BooksComponent>
-            {livros.map((livro, index) => (
-              <Book
-                key={livro.id}
-                livro={livro}
-                index={index}
-                Available={Available}
-              />
-            ))}
-          </BooksComponent>
-        </>
+      {livros.length < 1 ? (
+        <h1>nada por aqui</h1>
       ) : (
         <>
-          <SearchBar />
-          <BooksComponent>
-            {livrosemprestados.map((livro, index) => (
-              <Book
-                key={livro.id}
-                livro={livro}
-                index={index}
-                Available={Available}
-              />
-            ))}
-          </BooksComponent>
+          {Available ? (
+            <>
+              <SearchBar />
+              <BooksComponent>
+                {livros.map((livro, index) => (
+                  <Book
+                    key={livro.id}
+                    livro={livro}
+                    index={index}
+                    Available={Available}
+                  />
+                ))}
+              </BooksComponent>
+            </>
+          ) : (
+            <>
+              <SearchBar />
+              <BooksComponent>
+                {livrosemprestados.map((livro, index) => (
+                  <Book
+                    key={livro.id}
+                    livro={livro}
+                    index={index}
+                    Available={Available}
+                  />
+                ))}
+              </BooksComponent>
+            </>
+          )}
         </>
       )}
     </>

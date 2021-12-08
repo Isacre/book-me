@@ -290,9 +290,10 @@ const HomeReducer = createSlice({
       state.livros.push(action.payload);
     },
     BorrowBook(state, action) {
-      const BorrowedBook = state.livros[action.payload];
-      state.emprestados.push(BorrowedBook);
-      state.livros.splice(action.payload, 1);
+      const { payload } = action;
+      const { Book, Index } = payload;
+      state.emprestados.push(Book);
+      state.livros.splice(Index, 1);
     },
   },
 });
