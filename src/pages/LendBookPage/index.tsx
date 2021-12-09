@@ -43,8 +43,9 @@ const Inputs = styled.div`
 
   span {
     font-size: 10px;
-    text-align: end;
     color: rgba(115, 2, 2, 1);
+    margin-top: 26px;
+    margin-left: 10px;
   }
   input {
     width: 100%;
@@ -67,10 +68,9 @@ const Inputs = styled.div`
 
 export default function LendBookPage(props: any) {
   const navigate = useNavigate();
-  const { setLendBook } = props;
+
   const selectedBook = props.selectedBook;
   const BookIndex = props.BookIndex;
-  console.log(BookIndex);
   const LentIn = "";
   const [LentTill, setLentTill] = useState("");
   const [Obs, setObs] = useState("");
@@ -93,9 +93,12 @@ export default function LendBookPage(props: any) {
       },
       Index: BookIndex,
     };
-    dispatch(BorrowBook(BookData));
-    setLendBook(true);
-    navigate("/");
+    if (Receiver !== "") {
+      dispatch(BorrowBook(BookData));
+      navigate("/");
+    } else {
+      window.alert("Por favor informe o destinatário");
+    }
   }
 
   return (

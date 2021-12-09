@@ -14,6 +14,9 @@ import { useParams } from "react-router";
 import { useAppSelector } from "../../store/hooks";
 import SinopseBox from "../../Components/SinopseBox";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { RecoverBook } from "../../store/home";
+import { useNavigate } from "react-router";
 
 export default function BookInfo() {
   const data = useAppSelector((state) => state.home.emprestados);
@@ -21,7 +24,28 @@ export default function BookInfo() {
   const BookIndex = Number(livro);
   const selectedBook = data[BookIndex];
   const [ShowSinopse, setShowSinopse] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  function GetBookBack() {
+    const dados = {
+      Book: {
+        nome: selectedBook.nome,
+        autor: selectedBook.autor,
+        capa: selectedBook.capa,
+        categoria: selectedBook.categoria,
+        sinopse: selectedBook.sinopse,
+        id: `book-${Math.floor(Math.random() * 3214)}`,
+        emprestado: "",
+        em: "",
+        ate: "",
+        obs: "",
+      },
+      Index: BookIndex,
+    };
+    dispatch(RecoverBook(dados));
+    navigate("/");
+  }
   return (
     <>
       {ShowSinopse && (
@@ -51,8 +75,7 @@ export default function BookInfo() {
           <h1>Atualmente está com</h1>
           <h2>{selectedBook.emprestado}</h2>
           <Emprestar>
-            {" "}
-            <button>Recuperar</button>
+            <button onClick={GetBookBack}>Recuperar</button>
           </Emprestar>
         </StatusBox>
       </Component>

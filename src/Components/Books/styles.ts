@@ -20,3 +20,12 @@ export const BooksComponent = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 `;
+
+export const DidintFoundbooks = styled.img`
+height: 60vh;
+width: 65vw;
+`;
+
+export const NoBookDiv = styled.div`
+text-align: center;
+`;

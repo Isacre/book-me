@@ -287,16 +287,22 @@ const HomeReducer = createSlice({
   initialState: initialState,
   reducers: {
     AddBook(state, action) {
-      state.livros.push(action.payload);
+      state.livros.unshift(action.payload);
     },
     BorrowBook(state, action) {
       const { payload } = action;
       const { Book, Index } = payload;
-      state.emprestados.push(Book);
+      state.emprestados.unshift(Book);
       state.livros.splice(Index, 1);
+    },
+    RecoverBook(state, action) {
+      const { payload } = action;
+      const { Book, Index } = payload;
+      state.livros.unshift(Book);
+      state.emprestados.splice(Index, 1);
     },
   },
 });
 
-export const { AddBook, BorrowBook } = HomeReducer.actions;
+export const { AddBook, BorrowBook, RecoverBook } = HomeReducer.actions;
 export default HomeReducer.reducer;

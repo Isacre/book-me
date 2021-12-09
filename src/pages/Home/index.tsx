@@ -12,9 +12,11 @@ import Books from "../../Components/Books/index";
 import { useState } from "react";
 import { GoPlus } from "react-icons/go";
 import { Link } from "react-router-dom";
+import SearchBar from "../../Components/SearchBar";
 
 export default function Home() {
   const [Available, setAvailable] = useState(true);
+  const [Filter, setFilter] = useState("");
 
   return (
     <Component>
@@ -24,20 +26,26 @@ export default function Home() {
           <div>
             <AvailableBook
               Available={Available}
-              onClick={() => setAvailable(true)}
+              onClick={() => {
+                setAvailable(true);
+                setFilter("");
+              }}
             >
               Disponíveis
             </AvailableBook>
             <BorrowedBook
-              onClick={() => setAvailable(false)}
+              onClick={() => {
+                setAvailable(false);
+                setFilter("");
+              }}
               Available={Available}
             >
               Emprestados
             </BorrowedBook>
           </div>
         </Selector>
-
-        <Books Available={Available} />
+        <SearchBar filter={Filter} setFilter={setFilter} />
+        <Books Available={Available} searchValue={Filter} />
         <BUTTONDIV>
           <Link to="/adicionar">
             <NewBookButton>

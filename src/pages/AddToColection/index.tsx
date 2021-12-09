@@ -18,9 +18,7 @@ import { useDispatch } from "react-redux";
 import { AddBook } from "../../store/home";
 
 export default function AddToColection() {
-  const [Capa, setCapa] = useState(
-    "https://i.pinimg.com/236x/b4/9e/7a/b49e7a7298b855f8bf2cd3f5923ea7ab.jpg"
-  );
+  const [Capa, setCapa] = useState("");
   const [Nome, setNome] = useState("");
   const [Autor, setAutor] = useState("");
   const [genero, setGenero] = useState("");
@@ -31,18 +29,22 @@ export default function AddToColection() {
   function Newbook() {
     const BookData = {
       nome: Nome,
-      autor: Autor,
-      capa: Capa,
-      categoria: genero,
-      sinopse: Sinopse,
+      autor: Autor ? Autor : "Autor Desconhecido",
+      capa: Capa
+        ? Capa
+        : "https://i.pinimg.com/236x/b4/9e/7a/b49e7a7298b855f8bf2cd3f5923ea7ab.jpg",
+      categoria: genero ? genero : "Outros",
+      sinopse: Sinopse ? Sinopse : "Sinopse não informada",
       id: `book-${Math.floor(Math.random() * 3214)}`,
       emprestado: "",
       em: "",
       ate: "",
       obs: "",
     };
-
-    dispatch(AddBook(BookData));
+    if (Nome) {
+      dispatch(AddBook(BookData));
+      window.alert("Livro adicionado a biblioteca");
+    } else window.alert("Por favor, insira um nome");
   }
 
   return (
