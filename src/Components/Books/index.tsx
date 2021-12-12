@@ -16,6 +16,23 @@ export default function Books(props: any) {
   const FilteredLentBooks = livrosemprestados.filter((filtro) =>
     filtro.nome.toLowerCase().includes(searchValue.toLowerCase())
   );
+  const optionValue = props.optionValue;
+
+  const sort =
+    optionValue !== "Mais Recentes" &&
+    FilteredAvailableBooks.sort(function (a, b) {
+      if (a.nome.toLowerCase() < b.nome.toLowerCase()) return -1;
+      if (a.nome.toLowerCase() > b.nome.toLowerCase()) return 1;
+      return 0;
+    });
+
+  const sortLent =
+    optionValue !== "Mais Recentes" &&
+    FilteredLentBooks.sort(function (a, b) {
+      if (a.nome.toLowerCase() < b.nome.toLowerCase()) return -1;
+      if (a.nome.toLowerCase() > b.nome.toLowerCase()) return 1;
+      return 0;
+    });
 
   return (
     <>

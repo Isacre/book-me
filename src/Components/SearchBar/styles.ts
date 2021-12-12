@@ -29,6 +29,7 @@ export const Filters = styled.select`
   border: none;
   background-color: transparent;
   color: #730202;
+  outline: none;
 
   option {
     background-color: #730202;

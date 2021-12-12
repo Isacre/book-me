@@ -17,6 +17,7 @@ import SearchBar from "../../Components/SearchBar";
 export default function Home() {
   const [Available, setAvailable] = useState(true);
   const [Filter, setFilter] = useState("");
+  const [optionValue, setoptionValue] = useState("Mais Recentes");
 
   return (
     <Component>
@@ -44,8 +45,16 @@ export default function Home() {
             </BorrowedBook>
           </div>
         </Selector>
-        <SearchBar filter={Filter} setFilter={setFilter} />
-        <Books Available={Available} searchValue={Filter} />
+        <SearchBar
+          filter={Filter}
+          setFilter={setFilter}
+          setOptionValue={setoptionValue}
+        />
+        <Books
+          Available={Available}
+          searchValue={Filter}
+          optionValue={optionValue}
+        />
         <BUTTONDIV>
           <Link to="/adicionar">
             <NewBookButton>

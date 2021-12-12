@@ -3,7 +3,7 @@ import lupa from "../../assets/Search.svg";
 
 function SearchBar(props: any) {
   const filter = props.filter;
-  const { setFilter } = props;
+  const { setFilter, setOptionValue } = props;
 
   return (
     <Component>
@@ -14,9 +14,13 @@ function SearchBar(props: any) {
         onChange={(event) => setFilter(event?.target.value)}
       />
       <div>
-        <Filters id="filters" name="filters">
-          <option value="mais recentes">Mais recentes</option>
-          <option value="mais recentes">Ordem Alfabetica</option>
+        <Filters
+          onChange={(event) => setOptionValue(event.target.value)}
+          id="filters"
+          name="filters"
+        >
+          <option value="Mais Recentes">Mais recentes</option>
+          <option value="Ordem Alfabetica">Ordem Alfabetica</option>
         </Filters>
       </div>
     </Component>
