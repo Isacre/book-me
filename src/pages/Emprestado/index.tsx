@@ -9,6 +9,8 @@ import {
   StatusBox,
   Emprestar,
   FirstContainer,
+  IsWith,
+  DaysAgo,
 } from "./styles";
 import { useParams } from "react-router";
 import { useAppSelector } from "../../store/hooks";
@@ -36,10 +38,6 @@ export default function BookInfo() {
         categoria: selectedBook.categoria,
         sinopse: selectedBook.sinopse,
         id: `book-${Math.floor(Math.random() * 3214)}`,
-        emprestado: "",
-        em: "",
-        ate: "",
-        obs: "",
       },
       Index: BookIndex,
     };
@@ -72,8 +70,9 @@ export default function BookInfo() {
         </FirstContainer>
         <StatusBox>
           <p>Status</p>
-          <h1>Atualmente está com</h1>
-          <h2>{selectedBook.emprestado}</h2>
+          <h1>Atualmente este livro está com</h1>
+          <IsWith>{selectedBook.emprestado}</IsWith>
+          <DaysAgo>Há 14 dias</DaysAgo>
           <Emprestar>
             <button onClick={GetBookBack}>Recuperar</button>
           </Emprestar>

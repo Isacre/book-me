@@ -118,7 +118,8 @@ export const StatusBox = styled.div`
   background-color: #efe7dd;
   padding: 15px;
   border-radius: 10px;
-  margin-top: 160px;
+  margin-top: 130px;
+  margin-bottom: 10px;
   p {
     color: #be9c72;
     font-weight: 800;
@@ -137,10 +138,10 @@ export const StatusBox = styled.div`
 `;
 
 export const Emprestar = styled.div`
-  margin-top: 5%;
-  text-align: center;
-  display: relative;
-
+ text-align: right;
+ display: relative;
+ margin-top: -20px;
+ 
   button {
     color: #fff;
     background-color: #730202;
@@ -152,9 +153,23 @@ export const Emprestar = styled.div`
     height: 40px;
     font-size: 20px;
     cursor: pointer;
+   
   }
 `;
 
 export const FirstContainer = styled.div`
   width: 100%;
+`;
+
+export const IsWith = styled.h2`
+margin-top: 10px;
+color: #730202;
+border: 2px solid #730202;
+border-radius: 5px;
+font-size: 20px;
+padding: 5px;
+`;
+
+export const DaysAgo = styled.p`
+margin-top: 20px;
 `;

@@ -67,12 +67,15 @@ const Inputs = styled.div`
 `;
 
 export default function LendBookPage(props: any) {
+  const today = new Date();
+  const dd = today.getDate();
+  const mm = today.getMonth() + 1;
+  const yyyy = today.getFullYear();
+  const hoje = dd + "-" + mm + "-" + yyyy;
   const navigate = useNavigate();
-
   const selectedBook = props.selectedBook;
   const BookIndex = props.BookIndex;
-  const LentIn = "";
-  const [LentTill, setLentTill] = useState("");
+  const [LentTill, setLentTill] = useState("Indefinido");
   const [Obs, setObs] = useState("");
   const [Receiver, setReceiver] = useState("");
   const dispatch = useDispatch();
@@ -87,7 +90,7 @@ export default function LendBookPage(props: any) {
         sinopse: selectedBook.sinopse,
         id: `book-${Math.floor(Math.random() * 3214)}`,
         emprestado: Receiver,
-        em: LentIn,
+        em: hoje,
         ate: LentTill,
         obs: Obs,
       },
@@ -95,6 +98,7 @@ export default function LendBookPage(props: any) {
     };
     if (Receiver !== "") {
       dispatch(BorrowBook(BookData));
+
       navigate("/");
     } else {
       window.alert("Por favor informe o destinatário");
@@ -127,6 +131,8 @@ export default function LendBookPage(props: any) {
           <span>'(ignorar caso empreste indefinidamente)'</span>
         </div>
         <input
+          type="date"
+          min={new Date().toISOString().split("T")[0]}
           placeholder="28/04/2025"
           onChange={(e) => setLentTill(e.target.value)}
           value={LentTill}

@@ -36,10 +36,6 @@ export default function AddToColection() {
       categoria: genero ? genero : "Outros",
       sinopse: Sinopse ? Sinopse : "Sinopse não informada",
       id: `book-${Math.floor(Math.random() * 3214)}`,
-      emprestado: "",
-      em: "",
-      ate: "",
-      obs: "",
     };
     if (Nome) {
       dispatch(AddBook(BookData));

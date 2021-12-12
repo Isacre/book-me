@@ -118,7 +118,7 @@ export const StatusBox = styled.div`
   background-color: #efe7dd;
   padding: 15px;
   border-radius: 10px;
-  margin-top: 160px;
+  margin-top: 130px;
   p {
     color: #be9c72;
     font-weight: 800;
