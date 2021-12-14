@@ -1,4 +1,4 @@
-import { HeaderBackground, HeaderContainer, Logo, UserInfo } from "./styles";
+import { HeaderBackground, Content, Logo, UserArea } from "./styles";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import logo from "../../assets/Frame.svg";
@@ -10,18 +10,18 @@ export default function Header() {
   console.log(url);
   return (
     <HeaderBackground>
-      <HeaderContainer>
+      <Content>
         <Link to="/">
           <Logo>
             <img src={logo} alt="logo" />
             <p>Book.me</p>
           </Logo>
         </Link>
-        <UserInfo>
+        <UserArea>
           <img src={sino} alt="sino" />
           <img src={pessoa} alt="pessoa" />
-        </UserInfo>
-      </HeaderContainer>
+        </UserArea>
+      </Content>
     </HeaderBackground>
   );
 }

@@ -1,6 +1,6 @@
 import {
   Component,
-  AddNewBook,
+  PageTitle,
   InputContainer,
   SinopseBox,
   ImageContainer,
@@ -16,6 +16,7 @@ import { useState } from "react";
 import Vector from "../../assets/Vector.svg";
 import { useDispatch } from "react-redux";
 import { AddBook } from "../../store/home";
+import { useNavigate } from "react-router";
 
 export default function AddToColection() {
   const [Capa, setCapa] = useState("");
@@ -24,6 +25,7 @@ export default function AddToColection() {
   const [genero, setGenero] = useState("");
   const [NewImage, setNewImage] = useState(false);
   const [Sinopse, setSinopse] = useState("");
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   function Newbook() {
@@ -40,12 +42,13 @@ export default function AddToColection() {
     if (Nome) {
       dispatch(AddBook(BookData));
       window.alert("Livro adicionado a biblioteca");
-    } else window.alert("Por favor, insira um nome");
+      navigate("/");
+    } else window.alert("Por favor, informe o nome do livro");
   }
 
   return (
     <>
-      <AddNewBook>ADICIONAR LIVRO</AddNewBook>
+      <PageTitle>ADICIONAR LIVRO</PageTitle>
       <Component>
         <Container>
           <ImageContainer onClick={() => setNewImage(!NewImage)}>

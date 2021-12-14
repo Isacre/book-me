@@ -6,7 +6,7 @@ const Component = styled.div`
   background: rgba(0, 0, 0, 0.37);
   color: white;
   position: absolute;
-  margin-top: -30px;
+  margin-top: -20px;
   cursor: pointer;
 
   @media (max-width: 605px) {
@@ -23,7 +23,7 @@ const Content = styled.div`
   font-weight: 700;
   font-size: 16px;
   position: absolute;
-  top: calc(50% - 15vh);
+  top: calc(50% - 12vh);
   left: 50%;
   transform: translate(-50%, -50%);
 

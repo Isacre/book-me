@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const Books = styled.div`
+export const Book = styled.div`
   margin: auto;
   margin-top: 30px;
   cursor: pointer;

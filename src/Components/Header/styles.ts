@@ -10,7 +10,7 @@ export const HeaderBackground = styled.div`
   }
 `;
 
-export const HeaderContainer = styled.div`
+export const Content = styled.div`
   width: 90%;
   height: 100%;
   justify-content: space-between;
@@ -29,7 +29,7 @@ export const Logo = styled.div`
     height: 40px;
   }
 `;
-export const UserInfo = styled.div`
+export const UserArea = styled.div`
   vertical-align: top;
 
   img {

@@ -41,8 +41,13 @@ export default function BookInfo() {
       },
       Index: BookIndex,
     };
-    dispatch(RecoverBook(dados));
-    navigate("/");
+    const confirmação = window.confirm(
+      `Tem certeza que deseja pegar o livro emprestado a ${selectedBook.emprestado} de volta?`
+    );
+    if (confirmação) {
+      dispatch(RecoverBook(dados));
+      navigate("/");
+    } else return;
   }
   return (
     <>

@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
 export type Props = {
-    Available?: Boolean;
+  AvailableBooksSelector?: Boolean;
     setNome?: String;
     setAutor?: String;
     setCapa?: String;
   };
   
 export const Component = styled.div`
-  width: 100%;
-`;
-export const Content = styled.div`
   width: 90%;
   margin: auto;
 `;
+
 export const YourBooks = styled.h1`
   color: #730202;
   font-size: 54px;
@@ -23,7 +21,7 @@ export const YourBooks = styled.h1`
   line-height: 55px;
 `;
 
-export const Selector = styled.div`
+export const LentOrAvailableSelector = styled.div`
   width: 70%;
   margin: auto;
 
@@ -42,23 +40,25 @@ export const Selector = styled.div`
   }
 `;
 
-export const AvailableBook = styled.button<Props>`
+export const AvailableBooksButton = styled.button<Props>`
   color: ${(props) =>
-    props.Available ? "rgba(115,2,2,1)" : "rgba(115,2,2,0.25)"};
+    props.AvailableBooksSelector ? "rgba(115,2,2,1)" : "rgba(115,2,2,0.25)"};
   background-color: ${(props) =>
-    props.Available ? "rgba(146, 42, 42, 0.2);" : "transparent"};
+    props.AvailableBooksSelector ? "rgba(146, 42, 42, 0.2);" : "transparent"};
   padding: 5px 15px;
   border-radius: 25px;
   font-size: 12px;
+  transition: 0.5s;
 `;
-export const BorrowedBook = styled.button<Props>`
+export const LentBooksButton = styled.button<Props>`
   color: ${(props) =>
-    props.Available ? "rgba(115,2,2,0.25)" : "rgba(115,2,2,1)"};
+    props.AvailableBooksSelector ? "rgba(115,2,2,0.25)" : "rgba(115,2,2,1)"};
   background-color: ${(props) =>
-    props.Available ? "transparent" : "rgba(146, 42, 42, 0.2);"};
+    props.AvailableBooksSelector ? "transparent" : "rgba(146, 42, 42, 0.2);"};
   padding: 5px 15px;
   border-radius: 25px;
   font-size: 12px;
+  transition: 0.5s;
 `;
 
 export const NewBookButton = styled.button`

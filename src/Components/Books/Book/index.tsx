@@ -1,4 +1,4 @@
-import { Books, Title, Author, Cover, Block } from "./styles";
+import { Book, Title, Author, Cover, Block } from "./styles";
 import { Livro } from "../../../store/home";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
@@ -16,7 +16,7 @@ export default function LivroDisponivel(props: LivroDisponivelProps) {
     <>
       {Available ? (
         <>
-          <Books>
+          <Book>
             <Link to={`info/${index}`}>
               <Cover src={livro.capa} />
               <Block>
@@ -27,11 +27,11 @@ export default function LivroDisponivel(props: LivroDisponivelProps) {
                 </div>
               </Block>
             </Link>
-          </Books>
+          </Book>
         </>
       ) : (
         <>
-          <Books>
+          <Book>
             <Link to={`emprestado/${index}`}>
               <Cover src={livro.capa} />
               <Block>
@@ -42,7 +42,7 @@ export default function LivroDisponivel(props: LivroDisponivelProps) {
                 </div>
               </Block>
             </Link>
-          </Books>
+          </Book>
         </>
       )}
     </>

@@ -1,10 +1,9 @@
 import {
   Component,
-  Content,
   YourBooks,
-  Selector,
-  AvailableBook,
-  BorrowedBook,
+  LentOrAvailableSelector,
+  AvailableBooksButton,
+  LentBooksButton,
   NewBookButton,
   BUTTONDIV,
 } from "./styles";
@@ -15,54 +14,52 @@ import { Link } from "react-router-dom";
 import SearchBar from "../../Components/SearchBar";
 
 export default function Home() {
-  const [Available, setAvailable] = useState(true);
+  const [AvailableBooksSelector, setAvailableBooksSelector] = useState(true);
   const [Filter, setFilter] = useState("");
   const [optionValue, setoptionValue] = useState("Mais Recentes");
 
   return (
     <Component>
-      <Content>
-        <YourBooks>SEUS LIVROS</YourBooks>
-        <Selector>
-          <div>
-            <AvailableBook
-              Available={Available}
-              onClick={() => {
-                setAvailable(true);
-                setFilter("");
-              }}
-            >
-              Disponíveis
-            </AvailableBook>
-            <BorrowedBook
-              onClick={() => {
-                setAvailable(false);
-                setFilter("");
-              }}
-              Available={Available}
-            >
-              Emprestados
-            </BorrowedBook>
-          </div>
-        </Selector>
-        <SearchBar
-          filter={Filter}
-          setFilter={setFilter}
-          setOptionValue={setoptionValue}
-        />
-        <Books
-          Available={Available}
-          searchValue={Filter}
-          optionValue={optionValue}
-        />
-        <BUTTONDIV>
-          <Link to="/adicionar">
-            <NewBookButton>
-              <GoPlus />
-            </NewBookButton>
-          </Link>
-        </BUTTONDIV>
-      </Content>
+      <YourBooks>SEUS LIVROS</YourBooks>
+      <LentOrAvailableSelector>
+        <div>
+          <AvailableBooksButton
+            AvailableBooksSelector={AvailableBooksSelector}
+            onClick={() => {
+              setAvailableBooksSelector(true);
+              setFilter("");
+            }}
+          >
+            Disponíveis
+          </AvailableBooksButton>
+          <LentBooksButton
+            onClick={() => {
+              setAvailableBooksSelector(false);
+              setFilter("");
+            }}
+            AvailableBooksSelector={AvailableBooksSelector}
+          >
+            Emprestados
+          </LentBooksButton>
+        </div>
+      </LentOrAvailableSelector>
+      <SearchBar
+        filter={Filter}
+        setFilter={setFilter}
+        setOptionValue={setoptionValue}
+      />
+      <Books
+        AvailableBooksSelector={AvailableBooksSelector}
+        searchValue={Filter}
+        optionValue={optionValue}
+      />
+      <BUTTONDIV>
+        <Link to="/adicionar">
+          <NewBookButton>
+            <GoPlus />
+          </NewBookButton>
+        </Link>
+      </BUTTONDIV>
     </Component>
   );
 }

@@ -1,23 +1,26 @@
-import { BooksComponent, DidintFoundbooks, NoBookDiv } from "./styles";
+import { BooksComponent, DidintFindbooks, NoBookDiv } from "./styles";
 import { useAppSelector } from "../../store/hooks";
 import Book from "./Book";
 import NotFound from "../../assets/Notfound.svg";
 
 export default function Books(props: any) {
-  const Available = props.Available;
+  const AvailableBooksSelector = props.AvailableBooksSelector;
   const searchValue = props.searchValue;
 
+  // Dados brutos e filtrados dos livros disponíveis;
   const livros = useAppSelector((state) => state.home.livros);
   const FilteredAvailableBooks = livros.filter((filtro) =>
     filtro.nome.toLowerCase().includes(searchValue.toLowerCase())
   );
 
+  // Dados brutos e filtrados dos livros emprestados;
   const livrosemprestados = useAppSelector((state) => state.home.emprestados);
   const FilteredLentBooks = livrosemprestados.filter((filtro) =>
     filtro.nome.toLowerCase().includes(searchValue.toLowerCase())
   );
   const optionValue = props.optionValue;
 
+  //Funções de filtro dos livros
   const sort =
     optionValue !== "Mais Recentes" &&
     FilteredAvailableBooks.sort(function (a, b) {
@@ -33,14 +36,16 @@ export default function Books(props: any) {
       if (a.nome.toLowerCase() > b.nome.toLowerCase()) return 1;
       return 0;
     });
+  console.log(sortLent);
+  console.log(sort);
 
   return (
     <>
-      {Available ? (
+      {AvailableBooksSelector ? (
         <>
           {FilteredAvailableBooks.length === 0 && (
             <NoBookDiv>
-              <DidintFoundbooks src={NotFound} />
+              <DidintFindbooks src={NotFound} />
               <h1>Não encontramos nada</h1>
             </NoBookDiv>
           )}
@@ -50,7 +55,7 @@ export default function Books(props: any) {
                 key={livro.id}
                 livro={livro}
                 index={index}
-                Available={Available}
+                Available={AvailableBooksSelector}
               />
             ))}
           </BooksComponent>
@@ -59,7 +64,7 @@ export default function Books(props: any) {
         <>
           {FilteredLentBooks.length === 0 && (
             <NoBookDiv>
-              <DidintFoundbooks src={NotFound} />
+              <DidintFindbooks src={NotFound} />
               <h1>Não encontramos nada</h1>
             </NoBookDiv>
           )}
@@ -69,7 +74,7 @@ export default function Books(props: any) {
                 key={livro.id}
                 livro={livro}
                 index={index}
-                Available={Available}
+                Available={AvailableBooksSelector}
               />
             ))}
           </BooksComponent>

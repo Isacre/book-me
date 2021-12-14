@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Component = styled.div`
   margin: auto;
   width: 80%;
+  
 
   @media (min-width: 1024px) {
     display: grid;
@@ -10,7 +11,7 @@ export const Component = styled.div`
   }
 `;
 
-export const AddNewBook = styled.h1`
+export const PageTitle = styled.h1`
   color: #730202;
   font-size: 54px;
   letter-spacing: 0.5px;

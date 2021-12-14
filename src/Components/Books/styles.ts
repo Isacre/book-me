@@ -21,7 +21,7 @@ export const BooksComponent = styled.div`
   }
 `;
 
-export const DidintFoundbooks = styled.img`
+export const DidintFindbooks = styled.img`
 height: 60vh;
 width: 65vw;
 `;
